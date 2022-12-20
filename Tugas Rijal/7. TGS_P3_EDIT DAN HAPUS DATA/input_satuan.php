@@ -17,20 +17,5 @@ header('location:tampil_satuan.php');
 	echo mysqli_error();
 }
 }
-include("header.php");
+include_once('navbar_input_satuan.php');
 ?>
-<h1><center>INPUT SATUAN</center></h1>
-<br>
-<form method="POST">
-<table class="table table-bordered" border="1">
-	<tr>
-		<td>Nama</td>
-		<td><input type="text" name="nama_satuan" class="form-control"></td>
-	</tr>
-	<tr>
-		<td><input type="submit" name="save" class="btn btn-danger"></td>
-	</tr>
-</table>
-</form>
-<?php
-include("footer.php");

@@ -18,27 +18,10 @@ if(isset($_POST['save'])){
 	}
 }
 $id = $_GET['id'];
+$query_mysqli = mysqli_query($koneksi,"SELECT * FROM satuan WHERE id_satuan='$id'")or die(mysqli_error());
+$nomor = 1;
+while($data = mysqli_fetch_array($query_mysqli)){
 
-	$query_mysqli = mysqli_query($koneksi,"SELECT * FROM satuan WHERE id_satuan='$id'")or die(mysqli_error());
-	$nomor = 1;
-	while($data = mysqli_fetch_array($query_mysqli)){
-
-include("header.php");
+include_once('navbar_edit_satuan.php');
 ?>
-<h1><center> UPDATE SATUAN</center></h1>
-<br>
-<form method="POST">
-<table class="table table-bordered" border="1">
-	<tr>
-		<td>Nama</td>
-		<input type="hidden" name="id" value="<?php echo $data['id_satuan'];?>"/>
-		<td><input type="text" name="nama_satuan" class="form-control" required value="<?php echo $data['nama_satuan'];?>"></td>
-	</tr>
-	<tr>
-		<td><input type="submit" name="save" class="btn btn-danger"></td>
-	</tr>
-</table>
-</form>
 <?php } ?>
-<?php
-include("footer.php");

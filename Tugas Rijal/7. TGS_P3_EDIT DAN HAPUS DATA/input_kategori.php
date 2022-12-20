@@ -17,21 +17,5 @@ header('location:tampil_kategori.php');
 	echo mysqli_error();
 }
 }
-include("header.php");
-?>
-<h1><center>INPUT KATEGORI</center></h1>
-<br>
-<form method="POST">
-<table class="table table-bordered" border="1">
-	<tr>
-		<td>Nama</td>
-		<td><input type="text" name="nama_kategori" class="form-control"></td>
-	</tr>
-	<tr>
-		<td><input type="submit" name="save" class="btn btn-danger"></td>
-	</tr>
-</table>
-</form>
-<?php
-include("footer.php");
+include_once('navbar_input_kategori.php');
 ?>

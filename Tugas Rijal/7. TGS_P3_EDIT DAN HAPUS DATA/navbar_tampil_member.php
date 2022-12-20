@@ -23,7 +23,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <!-- //font-awesome icons -->
  <!-- js-->
 <script src="js/jquery-1.11.1.min.js"></script>
-
 <script src="js/modernizr.custom.js"></script>
 <!--webfonts-->
 <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
@@ -35,17 +34,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 		 new WOW().init();
 	</script>
 <!--//end-animate-->
-<!-- chart -->
-<script src="js/Chart.js"></script>
-<!-- //chart -->
-<!--Calender-->
-<link rel="stylesheet" href="css/clndr.css" type="text/css" />
-<script src="js/underscore-min.js" type="text/javascript"></script>
-<script src= "js/moment-2.2.1.js" type="text/javascript"></script>
-<script src="js/clndr.js" type="text/javascript"></script>
 
-<script src="js/site.js" type="text/javascript"></script>
-<!--End Calender-->
 <!-- Metis Menu -->
 <script src="js/metisMenu.min.js"></script>
 <script src="js/custom.js"></script>
@@ -55,8 +44,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <body class="cbp-spmenu-push">
 	<div class="main-content">
 		<!--left-fixed -navigation-->
-		
-		
 		<div class=" sidebar" role="navigation">
             <div class="navbar-collapse">
 				<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
@@ -192,7 +179,84 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="clearfix"> </div>	
 		</div>
-		<!-- main content start-->
-		<div id="page-wrapper">
-			<div class="main-page">
-			
+		<!-- //header-ends -->
+<div id="page-wrapper">
+<div class="main-page">		
+<form method="POST">
+	<table>
+		<tr>
+		<td>Cari Nama Member</td>
+		</tr>
+		<tr>
+			<td><input type="text" name="rijalkurniawan"></td>
+		</tr>
+		<tr>
+			<td><input type="submit" name="cari" value="Cari" onClick='top.location="tampil_member.php"'class='btn btn-danger'></td>
+		</tr>
+	</table>
+</form>
+
+<h1><center> DAFTAR MEMBER </center></h1>
+<br>
+<table class="table table-bordered table-striped no-margin grd_tble" border="1">
+  <tr>
+    <td><center>No</td>
+    <td><center>Nama Member</td>
+    <td><center>Level</td>
+	<td colspan="2"><center>OPSI</td>
+  </tr>
+
+  <?php
+  while($d = mysqli_fetch_array($data)){ ?>
+    <tr>
+      <td><center><?php echo $no++;?></td>
+      <td><?php echo $d ['nama_member'];?></td>
+      <td><?php echo $d ['level'];?></td>
+	  <td>
+		<a href="edit_member.php?id=<?php echo $d['id_member']; ?>">EDIT</a>
+		<td>
+		<a href="hapus_member.php?id=<?php echo $d['id_member']; ?>">HAPUS</a>
+	</td>
+  </tr>
+<?php }?>
+
+</table>
+<input type='button'value='Tambah Member'onClick='top.location="input_member.php"'class='btn btn-danger'>
+<input type='button'value='Refresh'onClick='top.location="tampil_member.php"'class='btn btn-danger'>
+
+
+<!--footer-->
+<div class="footer">
+<p>&copy; 2022 My POS | Design by <a href="#" target="_blank">RK</a></p>
+</div>
+<!--//footer-->
+</div>
+<!-- Classie -->
+<script src="js/classie.js"></script>
+<script>
+var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+showLeftPush = document.getElementById( 'showLeftPush' ),
+body = document.body;
+
+showLeftPush.onclick = function() {
+classie.toggle( this, 'active' );
+classie.toggle( body, 'cbp-spmenu-push-toright' );
+classie.toggle( menuLeft, 'cbp-spmenu-open' );
+disableOther( 'showLeftPush' );
+};
+
+
+function disableOther( button ) {
+if( button !== 'showLeftPush' ) {
+    classie.toggle( showLeftPush, 'disabled' );
+}
+}
+</script>
+<!--scrolling js-->
+<script src="js/jquery.nicescroll.js"></script>
+<script src="js/scripts.js"></script>
+<!--//scrolling js-->
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.js"> </script>
+</body>
+</html>

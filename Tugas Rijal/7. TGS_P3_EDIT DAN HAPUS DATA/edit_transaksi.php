@@ -31,66 +31,6 @@ $id = $_GET['id'];
 	$nomor = 1;
 	while($data = mysqli_fetch_array($query_mysqli)){
 
-include("header.php");
+include_once('navbar_edit_transaksi.php');
 ?>
-<h1><center> UPDATE TRANSAKSI</center></h1>
-<br>
-<form method="POST">
-<table class="table table-bordered" border="1">
-	<tr>
-		<td>Nama Transaksi</td>
-		<input type="hidden" name="id" value="<?php echo $data['id_transaksi'];?>"/>
-		<td><input type="text" name="nama_transaksi" class="form-control" required value="<?php echo $data['nama_transaksi'];?>"></td>
-	</tr>
-	<tr>
-		<td>Tanggal Transaksi</td>
-		<td><input type="date" name="tgl_transaksi" class="form-control" required value="<?php echo $data ['tgl_transaksi'];?>"></td>
-	</tr>
-    <tr>
-		<td>Id Barang</td>
-		<td><select class="form-control" name="id_barang" required>
-			<option value="<?php echo $data ['id_barang'];?>">-----Pilih-----</option>
-			<?php 
-			$sql_kategori = mysqli_query ($koneksi, "Select * from barang" ) or die
-			(mysql_error($koneksi));
-			while ($kategori = mysqli_fetch_array($sql_kategori)) {
-				echo '<option value="'.$kategori['id_barang'].'">'.$kategori['nama_barang'].'</option>';
-			} ?>
-		</select></td>
-	</tr>
-	<tr>
-		<td>Qty</td>
-		<td><input type="number" name="qty" class="form-control" required value="<?php echo $data ['qty'];?>"></td>
-	</tr>
-	<tr>
-		<td>Harga</td>
-		<td><input type="text" name="harga" class="form-control" required value="<?php echo $data ['harga'];?>"></td>
-	</tr>
-    <tr>
-		<td>Diskon Member</td>
-		<td><input type="number" name="diskon_member" class="form-control" required value="<?php echo $data ['diskon_member'];?>"></td>
-	</tr>
-	<tr>
-		<td>Diskon Barang</td>
-		<td><input type="number" name="diskon_barang" class="form-control" required value="<?php echo $data ['diskon_barang'];?>"></td>
-	</tr>
-    <tr>
-		<td>Id Member</td>
-		<td><select name="id_member" class="form-control" required>
-			<option value="<?php echo $data ['id_member'];?>">-----Pilih-----</option>
-			<?php 
-			$sql_member = mysqli_query ($koneksi, "Select * from member" ) or die
-			(mysql_error($koneksi));
-			while ($member = mysqli_fetch_array($sql_member)) {
-				echo '<option value="'.$member['id_member'].'">'.$member['nama_member'].'</option>';
-			} ?>
-	</tr>
-	<tr>
-		<td><input type="submit" name="save" class="btn btn-danger"></td>
-	</tr>
-</table>
-</form>
 <?php } ?>
-<input type='button'value='Tambah Member'onClick='top.location="input_member.php"'class="btn btn-danger">
-<?php
-include("footer.php");

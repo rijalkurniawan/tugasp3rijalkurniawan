@@ -25,28 +25,6 @@ $id = $_GET['id'];
 	$nomor = 1;
 	while($data = mysqli_fetch_array($query_mysqli)){
 
-include("header.php");
-	
+include_once('navbar_edit_user.php');
 ?>
-<h1><center> UPDATE USER</center></h1>
-<br>
-<form method="POST">
-<table class="table table-bordered" border="1">
-
-	<tr>
-		<td>Nama User</td>
-		<input type="hidden" name="id" value="<?php echo $data['id_user'];?>"/>
-		<td><input type="text" name="nama" class="form-control" required value="<?php echo $data['nama'];?>"></td>
-	</tr>
-	<tr>
-		<td>Nama Password</td>
-		<td><input type="text" name="password" class="form-control" required value="<?php echo $data['password'];?>"></td>
-	</tr>
-	<tr>
-		<td><input type="submit" name="save" class="btn btn-danger"></td>
-	</tr>
-</table>
-</form>
 <?php } ?>
-<?php
-include("footer.php");

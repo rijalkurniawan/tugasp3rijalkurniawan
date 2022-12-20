@@ -23,22 +23,7 @@ $id = $_GET['id'];
 	$nomor = 1;
 	while($data = mysqli_fetch_array($query_mysqli)){
 
-include("header.php");
+include_once('navbar_edit_kategori.php');
 ?>
-<h1><center> UPDATE KATEGORI</center></h1>
-<br>
-<form method="POST">
-<table class="table table-bordered" border="1">
-	<tr>
-		<td>Nama</td>
-		<input type="hidden" name="id" value="<?php echo $data['id_kategori'];?>"/>
-		<td><input type="text" name="nama_kategori" class="form-control" required value="<?php echo $data['nama_kategori'];?>"></td>
-	</tr>
-	<tr>
-		<td><input type="submit" name="save" class="btn btn-danger"></td>
-	</tr>
-</table>
-</form>
 <?php } ?>
-<?php
-include("footer.php");
+

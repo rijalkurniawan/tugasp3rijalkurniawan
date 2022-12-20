@@ -18,25 +18,5 @@ header('location:tampil_user.php');
 	echo mysqli_error();
 }
 }
-include("header.php");
-?>
-<form method="POST">
-<h1><center>INPUT USER</center></h1>
-<br>
-<table class="table table-bordered" border="1">
-	<tr>
-		<td>Nama User</td>
-		<td><input type="text" name="nama" class="form-control"></td>
-	</tr>
-	<tr>
-		<td>Nama Password</td>
-		<td><input type="text" name="password" class="form-control"></td>
-	</tr>
-	<tr>
-		<td><input type="submit" name="save" class="btn btn-danger"></td>
-	</tr>
-</table>
-</form>
-<?php
-include("footer.php");
+include_once('navbar_input_user.php');
 ?>
